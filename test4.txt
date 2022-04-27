@@ -1,0 +1,17 @@
+[][]Principal Coordinator (PC) POC:[][][][][]Jeremy D. Baczkiewicz[][][][][][][][][][]Marketing POC:[][][][][][][]Brian  Keefer
+[][]PC Secondary POC:[][][][][]Pier Westra[][][][][][][][][][]Quick Claims POC:[][][][][][][]Steve Yogodzinski
+[][]Accounting Secondary POC:[][][][][][][][][][][][][][][]SALAE POC:[][][][]Shane Roberts
+[][]PC Secondary POC:[][][][][][][][][][][][][][][]Quick Claims POC:[][][][][][]Steve Yogodzinski
+[][]Principal Coordinator (PC) POC:[][][][][]Noel Bunol[][][][][][][][][][]Marketing POC:[][][][]Melissa Leuck
+[][]PC Secondary POC:[][][][][]Crystal Bunol[][][][][][][][][][]Quick Claims POC:[][][][]Duane Paulson
+[][]PC Secondary POC:[][][][][]Nick Lechner[][][][][][][][][][][]Quick Claims POC:[][][][][][][]Steve Yogodzinski
+[][]PC Secondary POC:[][][][][]Luis Gil- AVP- Underwriting Personal Lines[][][][][][][][][][][]Quick Claims POC:[][][][][][]Rafael Rivera
+[][]PC Secondary POC:[][][][][][][][][][][][][][][]Quick Claims POC:[][][][][][][]Joe Hickox
+[][]IT POC:[][][][][]NFS Helpdesk[][][][][][][][][][]Underwriting Secondary POC:[][][][][][][]Larry W. Palmer
+[][]PC Secondary POC:[][][][][][][][][][][][]Quick Claims POC:[][][][][][][]Steve Yogodzinski
+[][]PC Secondary POC:[][][][][]Chantal Cyr[][][][][][][][][][]Quick Claims POC:[][][][][][][]Steve Yogodzinski
+[][]PC Secondary POC:[][][][][]Nathan Edwards[][][][][][][][][][]Quick Claims POC:[][][][][][][]Joe Hickox
+[][]PC Secondary POC:[][][][][][][][][][][][][][][]Quick Claims POC:[][][][][][][]Steve Yogodzinski
+[][]PC Secondary POC:[][][][][]Tony Gonzalez[][][][][][][][][][]Quick Claims POC:[][][][][][][]Steve Yogodzinski
+[][]PC Secondary POC:[][][][][]Christina Melendez[][][][][][][][][]Quick Claims POC:[][][][][][][]Gerry Waytowich
+[][]PC Secondary POC:[][][][][]Patricia Templeton-Jones[][][][][][][][][][]Quick Claims POC:[][][][][][][]Michael Brogan
