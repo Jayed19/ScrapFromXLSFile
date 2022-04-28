@@ -43,7 +43,7 @@ def GenerateSQL():
     df = pd.read_excel(filedir,keep_default_na=False)
     
 
-    f = open("test7.txt", "a",encoding='utf-8')
+    f = open("test8.txt", "a",encoding='utf-8')
         #Row Finding
     for row in df.itertuples(index=False,name='eachrow'):
         #print(row)
@@ -89,12 +89,23 @@ def GenerateSQL():
 
             else:
                 if splt!=None:
-                    person1=splt[1]
+                    person1=splt[0]
                     person1=str(person1).split("POC:")
                     person1=person1[1]
                     person1=re.sub("[][]+", "[]", person1)
                     person1=person1.replace("[]","")
-                    print(person1)
+                    #print(person1)
+                    f.write(str(person1))
+                    
+
+                    person2=splt[1]
+                    person2=str(person2).split("POC:")
+                    person2=person2[1]
+                    person2=re.sub("[][]+", "[]", person2)
+                    person2=person2.replace("[]","")
+                    #print(person1)
+                    f.write(" and "+str(person1))
+                    f.write("\n")
                     
                 
                 
