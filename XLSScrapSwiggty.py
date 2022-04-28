@@ -55,8 +55,12 @@ def GenerateSQL():
         for item in tuple1:
             it=item
             ii = ii +"[]"+str(it)
-        #ii="Hello Principal Coordinator (PC) POC: Test"
+        
+        #ii is now row
         x=re.search(".*POC:", ii)
+        y=re.search(".*Phone:", ii)
+        z=re.search(".*E-mail:",ii)
+
         if x:
             rowsting=x.string
             splt=rowsting.split(",")
@@ -95,7 +99,7 @@ def GenerateSQL():
                     person1=re.sub("[][]+", "[]", person1)
                     person1=person1.replace("[]","")
                     #print(person1)
-                    f.write(str(person1))
+                    #f.write(str(person1))
                     
 
                     person2=splt[1]
@@ -104,9 +108,69 @@ def GenerateSQL():
                     person2=re.sub("[][]+", "[]", person2)
                     person2=person2.replace("[]","")
                     #print(person1)
-                    f.write(" and "+str(person1))
-                    f.write("\n")
-                    
+                    #f.write(" and "+str(person1))
+                    #f.write("\n")
+
+        if y:
+            rowsting_phone=y.string
+            splt_phone=rowsting_phone.split(":")
+            person1_phone=splt_phone[1]
+            person1_phone=re.sub("[][]+", "[]", person1_phone)
+            person1_phone=person1_phone.split('[]')
+            if len(person1_phone)>1:
+                person1_phone=person1_phone[1]
+                
+            else:
+                person1_phone=" "
+
+            #print(str(person1_phone))
+
+            if len(splt_phone)>2:
+                person2_phone=splt_phone[2]
+                person2_phone=re.sub("[][]+", "[]", person2_phone)
+                person2_phone=person2_phone.split('[]')
+                if len(person2_phone)>1:
+                    person2_phone=person2_phone[1]
+                else:
+                    person2_phone=" "
+
+            else:
+                person2_phone=" "
+
+
+            #print(str(person2_phone))
+
+        if z:
+            rowsting_email=z.string
+            splt_email=rowsting_email.split(":")
+            person1_email=splt_email[1]
+            person1_email=re.sub("[][]+", "[]", person1_email)
+            person1_email=person1_email.split('[]')
+            if len(person1_email)>1:
+                person1_email=person1_email[1]
+                
+            else:
+                person1_email=" "
+
+            #print(str(person1_email))
+
+            if len(splt_email)>2:
+                person2_email=splt_email[2]
+                person2_email=re.sub("[][]+", "[]", person2_email)
+                person2_email=person2_email.split('[]')
+                if len(person2_email)>1:
+                    person2_email=person2_email[1]
+                else:
+                    person2_email=" "
+
+            else:
+                person2_email=" "
+
+            #print(" and "+str(person2_email))
+
+
+            
+
                 
                 
 
