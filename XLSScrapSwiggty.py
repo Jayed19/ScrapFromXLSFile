@@ -5,7 +5,7 @@ from tkinter import messagebox
 from tkinter import messagebox
 import os
 
-from pyparsing import empty
+#from pyparsing import empty
 
 #GUI Window
 root = Tk()
@@ -43,15 +43,15 @@ def GenerateSQL():
     df = pd.read_excel(filedir,keep_default_na=False)
     
 
-    f = open("test6.txt", "a",encoding='utf-8')
+    f = open("test7.txt", "a",encoding='utf-8')
         #Row Finding
     for row in df.itertuples(index=False,name='eachrow'):
         #print(row)
         tuple1=row
         #print(tuple1)
         ii = '[]'
-
-# Use for loop to convert tuple to string.
+        
+            
         for item in tuple1:
             it=item
             ii = ii +"[]"+str(it)
@@ -65,30 +65,37 @@ def GenerateSQL():
                 x1=re.search(".*POC:", i)
                 if x1 is None:
                     splt.remove(i)
-                    
-            for i in splt:
-                if len(re.findall("POC:",i))>1:
-                    i=str(i).split("POC:")
-                    person1=i[1]
-                    person2=i[2]
-                    
-                    #person1=person1.replace("[]"," ")
-                    person1=re.sub("[][]+", "[]", person1)
-                    person1=person1.split("[]")
+
+            if len(splt)==1:      
+                for i in splt:
+                    if len(re.findall("POC:",i))>1:
+                        i=str(i).split("POC:")
+                        person1=i[1]
+                        person2=i[2]
+                        
+                        #person1=person1.replace("[]"," ")
+                        person1=re.sub("[][]+", "[]", person1)
+                        person1=person1.split("[]")
+                        person1=person1[1]
+                        #print("Person 1: "+person1[1])
+
+                        
+
+                        
+                        person2=re.sub("[][]+", "[]", person2)
+                        person2=person2.split("[]")
+                        person2=person2[1]
+                        #print("Person 2: "+person2)
+
+            else:
+                if splt!=None:
+                    person1=splt[1]
+                    person1=str(person1).split("POC:")
                     person1=person1[1]
-                    #print("Person 1: "+person1[1])
-
+                    person1=re.sub("[][]+", "[]", person1)
+                    person1=person1.replace("[]","")
+                    print(person1)
                     
-
-                    
-                    person2=re.sub("[][]+", "[]", person2)
-                    person2=person2.split("[]")
-                    person2=person2[1]
-                    #print("Person 2: "+person2)
-
-                else:
-                    f.write(str(i))
-                f.write("\n")
                 
                 
 
