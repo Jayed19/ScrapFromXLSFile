@@ -4,6 +4,10 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter import messagebox
 import os
+from os.path import exists
+
+
+
 
 #from pyparsing import empty
 
@@ -42,9 +46,10 @@ BrowseFilebtn.grid(row=3,column=2)
 def GenerateSQL():
     df = pd.read_excel(filedir,keep_default_na=False)
     
+    
 
-    f = open("test8.txt", "a",encoding='utf-8')
-        #Row Finding
+    f = open("Email.csv", "a",encoding='utf-8')
+    
     for row in df.itertuples(index=False,name='eachrow'):
         #print(row)
         tuple1=row
@@ -61,7 +66,8 @@ def GenerateSQL():
         y=re.search(".*Phone:", ii)
         z=re.search(".*E-mail:",ii)
 
-        if x:
+        
+        '''if x:
             rowsting=x.string
             splt=rowsting.split(",")
             #print(splt)
@@ -80,16 +86,39 @@ def GenerateSQL():
                         #person1=person1.replace("[]"," ")
                         person1=re.sub("[][]+", "[]", person1)
                         person1=person1.split("[]")
-                        person1=person1[1]
-                        #print("Person 1: "+person1[1])
+                        if len(person1)>1:
+                            person1=person1[1]
+                            f.write(str(person1)+",")
+                        else:
+                            person1=""
+                            f.write(str(person1)+",")
+
+                        
+                        
 
                         
 
                         
                         person2=re.sub("[][]+", "[]", person2)
                         person2=person2.split("[]")
-                        person2=person2[1]
-                        #print("Person 2: "+person2)
+                        if len(person2)>1:
+                            person2=person2[1]
+                            f.write(str(person2))
+                        else:
+                            person2=""
+                            f.write(str(person2))
+
+
+                        
+                        
+                        
+                        
+                        
+                        
+
+                                
+
+
 
             else:
                 if splt!=None:
@@ -99,7 +128,7 @@ def GenerateSQL():
                     person1=re.sub("[][]+", "[]", person1)
                     person1=person1.replace("[]","")
                     #print(person1)
-                    #f.write(str(person1))
+                    
                     
 
                     person2=splt[1]
@@ -107,11 +136,17 @@ def GenerateSQL():
                     person2=person2[1]
                     person2=re.sub("[][]+", "[]", person2)
                     person2=person2.replace("[]","")
-                    #print(person1)
-                    #f.write(" and "+str(person1))
-                    #f.write("\n")
 
-        if y:
+                    
+                    f.write(str(person1)+","+str(person2))
+                    
+            f.write("\n")'''
+                    
+
+
+
+    
+        '''if y:
             rowsting_phone=y.string
             splt_phone=rowsting_phone.split(":")
             person1_phone=splt_phone[1]
@@ -137,9 +172,17 @@ def GenerateSQL():
             else:
                 person2_phone=" "
 
+            
+            f.write(str(person1_phone)+","+str(person2_phone))
+            f.write("\n")'''
+            
 
-            #print(str(person2_phone))
+        
+                    
 
+
+
+        
         if z:
             rowsting_email=z.string
             splt_email=rowsting_email.split(":")
@@ -165,9 +208,12 @@ def GenerateSQL():
 
             else:
                 person2_email=" "
+            
+            f.write(str(person1_email)+","+str(person2_email))
+            f.write("\n")
 
-            #print(" and "+str(person2_email))
-
+            
+               
 
             
 
@@ -177,6 +223,8 @@ def GenerateSQL():
                     
     
     f.close()
+    
+
 
 
         
