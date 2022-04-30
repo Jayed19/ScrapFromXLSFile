@@ -48,7 +48,7 @@ def GenerateSQL():
     
     
 
-    f = open("Email.csv", "a",encoding='utf-8')
+    f = open("title.txt", "a",encoding='utf-8')
     
     for row in df.itertuples(index=False,name='eachrow'):
         #print(row)
@@ -67,19 +67,80 @@ def GenerateSQL():
         z=re.search(".*E-mail:",ii)
 
         
-        '''if x:
+        if x:
             rowsting=x.string
-            splt=rowsting.split(",")
-            #print(splt)
-            for i in splt:
-                x1=re.search(".*POC:", i)
-                if x1 is None:
-                    splt.remove(i)
+            splt=rowsting.split(":")
+            #print(str(len(splt)))
 
-            if len(splt)==1:      
-                for i in splt:
+
+
+            
+            if len(splt)==3:
+                #print(str(splt[1])+" and "+str(splt[2]))    
+                person1_title=str(splt[1])
+                person2_title=str(splt[2])
+
+                person1_title=re.sub("[][]+", "[]", person1_title)
+                #print(person1_title)
+                person1_title=person1_title.split("[]")
+                #print(str(person1_title))
+                person1_title=person1_title[1]
+                #print(person1_title)
+                if re.findall(",",person1_title):
+                    person1_title=person1_title.split(",", 1)[1]
+                else:
+                    person1_title=" "
+                
+                #print(str(person1_title))
+                    
+
+
+                person2_title=re.sub("[][]+", "[]", person2_title)
+                #print(person2_title)
+                person2_title=person2_title.split("[]")
+                #print(str(person2_title))
+                person2_title=person2_title[1]
+                #print(person2_title)
+                if re.findall(",",person2_title):
+                    person2_title=person2_title.split(",", 1)[1]
+                else:
+                    person2_title=" "
+                
+                #print(str(person1_title)+"-----------"+str(person2_title))
+                f.write(str(person1_title)+"[]"+str(person2_title))
+                f.write("\n")
+                
+                #print("\n")
+
+            else:
+               #print(str(splt))
+                #print("-----------------------------------------------------------")
+
+                person1_title=splt[1]
+                person2_title=splt[2]
+                person1_title=re.sub("  +", "_", person1_title)
+                person1_title=person1_title.split(",", 1)[1]
+                person1_title=person1_title.split("_",1)[0]
+                #print(str(person1_title))
+
+
+                
+                person2_title=person2_title.split("\n", 1)[0]
+                person2_title=person2_title.split(",", 1)[1]
+
+
+                f.write(str(person1_title)+"[]"+str(person2_title))
+                f.write("\n")
+                #print(str(person2_title))
+                
+                #print(str(person2_title))
+                
+                
+                '''for i in splt:
                     if len(re.findall("POC:",i))>1:
                         i=str(i).split("POC:")
+                        f.write(str(i))
+
                         person1=i[1]
                         person2=i[2]
                         
@@ -88,10 +149,10 @@ def GenerateSQL():
                         person1=person1.split("[]")
                         if len(person1)>1:
                             person1=person1[1]
-                            f.write(str(person1)+",")
+                            #f.write(str(person1)+",")
                         else:
                             person1=""
-                            f.write(str(person1)+",")
+                            #f.write(str(person1)+",")
 
                         
                         
@@ -103,10 +164,10 @@ def GenerateSQL():
                         person2=person2.split("[]")
                         if len(person2)>1:
                             person2=person2[1]
-                            f.write(str(person2))
+                            #f.write(str(person2))
                         else:
                             person2=""
-                            f.write(str(person2))
+                            #f.write(str(person2))
 
 
                         
@@ -124,21 +185,22 @@ def GenerateSQL():
                 if splt!=None:
                     person1=splt[0]
                     person1=str(person1).split("POC:")
-                    person1=person1[1]
-                    person1=re.sub("[][]+", "[]", person1)
-                    person1=person1.replace("[]","")
+                    #person1=person1[1]
+                    #person1=re.sub("[][]+", "[]", person1)
+                    #person1=person1.replace("[]","")
                     #print(person1)
+                    f.write(str(person1))
                     
                     
 
                     person2=splt[1]
                     person2=str(person2).split("POC:")
-                    person2=person2[1]
-                    person2=re.sub("[][]+", "[]", person2)
-                    person2=person2.replace("[]","")
-
+                    #person2=person2[1]
+                    #person2=re.sub("[][]+", "[]", person2)
+                    #person2=person2.replace("[]","")
+                    f.write(str(person2))
                     
-                    f.write(str(person1)+","+str(person2))
+                    #f.write(str(person1)+","+str(person2))
                     
             f.write("\n")'''
                     
@@ -183,7 +245,7 @@ def GenerateSQL():
 
 
         
-        if z:
+        '''if z:
             rowsting_email=z.string
             splt_email=rowsting_email.split(":")
             person1_email=splt_email[1]
@@ -210,7 +272,7 @@ def GenerateSQL():
                 person2_email=" "
             
             f.write(str(person1_email)+","+str(person2_email))
-            f.write("\n")
+            f.write("\n")'''
 
             
                
